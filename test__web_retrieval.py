@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from web_retrieval import WebRetriever, Website
+from core.web_retrieval import WebRetriever, Website
 
 
 # ======================================================================================================================

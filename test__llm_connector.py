@@ -1,4 +1,4 @@
-from llm_connector import ChatGPTConnector, OllamaConnector
+from core.llm_connector import ChatGPTConnector, OllamaConnector
 
 # ======================================================================================================================
 # Prepare

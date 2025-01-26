@@ -1,5 +1,5 @@
-from llm_connector import *
-from web_summarizer_agent import WebSummarizerAgent
+from core.llm_connector import *
+from agent.web_summarizer_agent import WebSummarizerAgent
 
 # ======================================================================================================================
 # Test

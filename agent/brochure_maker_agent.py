@@ -2,9 +2,9 @@ import json
 
 from bs4 import BeautifulSoup
 
-from agent import Agent
-from llm_connector import LLMConnector
-from web_retrieval import WebRetriever, Website
+from core.agent import Agent
+from core.llm_connector import LLMConnector
+from core.web_retrieval import WebRetriever, Website
 
 
 # ======================================================================================================================

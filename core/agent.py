@@ -1,6 +1,6 @@
 from typing import *
 
-from llm_connector import LLMConnector
+from core.llm_connector import LLMConnector
 
 
 # ======================================================================================================================

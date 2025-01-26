@@ -1,5 +1,4 @@
 from os import getenv
-from typing import *
 
 import ollama
 from dotenv import load_dotenv

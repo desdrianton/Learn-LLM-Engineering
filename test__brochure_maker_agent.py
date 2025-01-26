@@ -1,5 +1,5 @@
-from brochure_maker_agent import BrochureMakerAgent
-from llm_connector import ChatGPTConnector
+from agent.brochure_maker_agent import BrochureMakerAgent
+from core.llm_connector import ChatGPTConnector
 
 # ======================================================================================================================
 # Test
