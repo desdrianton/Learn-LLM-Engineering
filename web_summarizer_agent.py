@@ -23,14 +23,16 @@ class WebSummarizerAgent(Agent):
 
         return user_prompt
 
-    def act(self):
+    def _retrieve_website(self):
         url: str = self._params.get("url")
         web_retriever: WebRetriever = WebRetriever(url=url)
         soup: BeautifulSoup = web_retriever.retrieve()
         website: Website = Website(url=url, soup=soup)
         self._params["title"] = website.get_title()
         self._params["body"] = website.get_body()
-        system_prompt:str = self._generate_system_prompt()
-        user_prompt:str = self._generate_user_prompt()
 
-        return self._llm_connector.ask(system_prompt=system_prompt, user_prompt=user_prompt)
+    def act(self):
+        self._retrieve_website()
+
+        return self._llm_connector.ask(system_prompt=self._generate_system_prompt(),
+                                       user_prompt=self._generate_user_prompt())
