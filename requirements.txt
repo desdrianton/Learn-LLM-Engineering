@@ -1,0 +1,5 @@
+python-dotenv~=1.0.1
+requests~=2.32.3
+openai~=1.59.3
+beautifulsoup4~=4.12.3
+ollama~=0.4.5
