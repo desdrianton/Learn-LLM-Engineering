@@ -6,6 +6,7 @@ ollama~=0.4.5
 anthropic~=0.42.0
 google-generativeai
 gradio~=5.9.1
+youtube-transcript-api
 
 protobuf~=5.29.2
 html5lib~=1.1
@@ -13,7 +14,7 @@ bleach~=6.2.0
 lxml~=5.3.0
 soupsieve~=2.6
 h11~=0.14.0
-pip~=24.3.1
+# pip~=24.3.1
 emoji~=2.14.0
 attrs~=24.2.0
 distro~=1.9.0

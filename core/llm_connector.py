@@ -17,11 +17,11 @@ class LLMConnector:
         self._model = model
 
     def _push_context(self, *, system_prompt=None, user_prompt=None, assistant_result=None) -> list:
-        if system_prompt is not None:
+        if system_prompt is not None and system_prompt != "":
             self._context.append({"role": "system", "content": system_prompt})
-        if user_prompt is not None:
+        if user_prompt is not None and user_prompt != "":
             self._context.append({"role": "user", "content": user_prompt})
-        if assistant_result is not None:
+        if assistant_result is not None and assistant_result != "":
             self._context.append({"role": "assistant", "content": assistant_result})
 
         return self._context
