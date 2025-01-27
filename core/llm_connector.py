@@ -4,7 +4,7 @@ import ollama
 from anthropic import Anthropic
 from dotenv import load_dotenv
 from openai import OpenAI
-
+import google.generativeai as genai
 
 # ======================================================================================================================
 # LLMConnector
@@ -133,3 +133,23 @@ class ClaudeConnector(LLMConnector):
                 {"role": "user", "content": user_prompt},
             ],
         )
+
+# ======================================================================================================================
+# GeminiConnector
+# ======================================================================================================================
+class GeminiConnector(LLMConnector):
+    MODEL_gemini_1_5_flash: str = "gemini-1.5-flash"
+
+    def __init__(self, model: str = MODEL_gemini_1_5_flash):
+        super().__init__(model=model)
+        load_dotenv()
+        google_api_key = getenv('GOOGLE_API_KEY')
+        genai.configure(api_key=google_api_key)
+
+    def ask(self, *, system_prompt, user_prompt, **kwargs):
+        gemini = genai.GenerativeModel(
+            model_name=self._model,
+            system_instruction=system_prompt
+        )
+
+        return gemini.generate_content(user_prompt).text
