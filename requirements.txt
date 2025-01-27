@@ -5,6 +5,7 @@ openai~=1.59.3
 ollama~=0.4.5
 anthropic~=0.42.0
 google-generativeai
+gradio~=5.9.1
 
 protobuf~=5.29.2
 html5lib~=1.1
