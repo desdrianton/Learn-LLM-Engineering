@@ -51,14 +51,14 @@ class BrochureMakerAgent(Agent):
         return whole_website_information
 
     def _step3_make_brochure(self, whole_website_information: str):
-        company_name: str = self._params["company_name"]
-        is_humorous: bool = self._params["style"] and self._params["style"].lower() == "humorous"
+        company_name: str = self._params["company_name"] if "company_name" in self._params else None
+        is_humorous: bool = (self._params["style"] and self._params["style"].lower() == "humorous") if "style" in self._params else False
 
         system_prompt_formal = "You are an assistant that analyzes the contents of several relevant pages from a company website and creates a short brochure about the company for prospective customers, investors and recruits. Respond in markdown. Include details of company culture, customers and careers/jobs if you have the information."
         system_prompt_humorous = "You are an assistant that analyzes the contents of several relevant pages from a company website and creates a short humorous, entertaining, jokey brochure about the company for prospective customers, investors and recruits. Respond in markdown. Include details of company culture, customers and careers/jobs if you have the information."
         system_prompt = system_prompt_humorous if is_humorous else system_prompt_formal
 
-        user_prompt = f"You are looking at a company called: {company_name}\n"
+        user_prompt = f"You are looking at a company called: {company_name}\n" if company_name else ""
         user_prompt += f"Here are the contents of its landing page and other relevant pages; use this information to build a short brochure of the company in markdown.\n"
         user_prompt += whole_website_information
         user_prompt = user_prompt[:5_000]

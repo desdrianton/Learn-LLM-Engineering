@@ -45,7 +45,7 @@ class ChatGPTConnector(LLMConnector):
 
     _openai: OpenAI
 
-    def __init__(self, model: str = MODEL_gpt_4o):
+    def __init__(self, model: str = MODEL_gpt_4o_mini):
         super().__init__(model=model)
         load_dotenv()
         getenv('OPENAI_API_KEY')
